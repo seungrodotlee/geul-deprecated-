@@ -33,7 +33,7 @@ class Geul {
               );
 
               if (d == this.particles.length) {
-                resolve(this.particles);
+                resolve(this.source);
               }
             }, speed * d);
           }.bind(this)(parseInt(i)));
@@ -57,7 +57,6 @@ class Geul {
     }
 
     let targetIdx = Hangul.disassemble(position).length;
-    console.log("target idx ", targetIdx);
 
     let prom = new Promise((resolve, reject) => {
       if (!(this.element instanceof HTMLElement)) {
@@ -73,8 +72,8 @@ class Geul {
                 this.particles.slice(0, pos)
               );
 
-              if (d == this.particles.length) {
-                resolve(this.particles);
+              if (d == targetIdx) {
+                resolve(position);
               }
             }, speed * d);
           }.bind(this)(parseInt(i)));
