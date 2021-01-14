@@ -1,0 +1,71 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+input {
+  background: transparent;
+}
+
+.thin {
+  font-weight: 100;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.black {
+  font-weight: 900;
+}
+
+.title {
+  font-size: 0;
+}
+
+.title > span {
+  font-size: 5rem;
+}
+
+.input-wrap {
+  margin-top: 0.5rem;
+}
+
+.input-wrap input {
+  border-bottom: 1px solid var(--black);
+}
+
+#result {
+  height: 1.2rem;
+  margin-top: 1rem;
+}

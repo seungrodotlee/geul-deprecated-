@@ -1,15 +1,10 @@
 window.addEventListener("load", () => {
-  let input = document.querySelector("#input");
-  let submit = document.querySelector("#submit");
-  let resultLabel = document.querySelector("#result");
-  window.resultLabel = resultLabel;
-  window.g = new Geul("안녕하세요");
+  croquis.submit.addEventListener("click", () => {
+    let val = croquis.input.value;
+    let p = croquis.result.geul(val);
 
-  submit.addEventListener("click", () => {
-    let val = input.value;
-    console.log(val);
-    let p = resultLabel.geul(val);
-
+    let toast = croquis.newToast(`타이핑이 시작됩니다: ${val}`);
+    toast.autoCloseAt(4000);
     p.then((msg) => {
       console.log(msg);
     });
