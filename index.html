@@ -4,14 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GEUL</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./croquis/croquis.css" />
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <p>
-      <input id="input" type="text" placeholder="문구를 입력해보세요" />
-      <button id="submit">타이핑</button>
-    </p>
-    <p id="result"></p>
+    <div class="container full-y flex centering">
+      <div>
+        <h1 class="title centered-text">
+          <span class="black">G</span>
+          <span class="bold">E</span>
+          <span class="regular">U</span>
+          <span class="thin">L</span>
+        </h1>
+        <h4 id="example" class="centered-text">한글을 더 아름답게</h4>
+        <p class="input-wrap flex">
+          <input id="input" type="text" placeholder="문구를 입력해보세요" />
+          <button id="submit" class="square-btn hover-back">타이핑</button>
+        </p>
+        <p id="result">&nbsp;</p>
+      </div>
+    </div>
     <script src="../dist/geul.js"></script>
+    <script src="./croquis/croquis.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
