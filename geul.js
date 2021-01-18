@@ -203,8 +203,6 @@ Geul.setStaticSpeed = function (value) {
   Geul._speed = value;
 };
 
-console.log(Geul._speed);
-
 HTMLElement.prototype.geul = function (source, delay = 0, speed = Geul._speed) {
   if ("_g" in this) {
     this._g.setValue(source);
@@ -233,7 +231,6 @@ HTMLElement.prototype.reverse = function (
   speed = Geul._speed,
   source = this.textContent
 ) {
-  console.log(this.textContent);
   if (!("_g" in this)) {
     this._g = new Geul(source, this, speed);
   }
