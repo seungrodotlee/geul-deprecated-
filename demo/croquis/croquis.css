@@ -98,6 +98,7 @@ legend,
 textarea,
 input,
 button,
+.button,
 table,
 caption,
 tbody,
@@ -224,15 +225,6 @@ html {
   -ms-text-size-adjust: 100%;
 }
 
-a:focus {
-  outline: thin dotted;
-}
-
-a:active,
-a:hover {
-  outline: 0;
-}
-
 img {
   border: 0;
   -ms-interpolation-mode: bicubic;
@@ -259,7 +251,7 @@ legend {
   *margin-left: -7px;
 }
 
-button,
+button, .button,
 input,
 select,
 textarea {
@@ -269,17 +261,17 @@ textarea {
   *vertical-align: middle;
 }
 
-button,
+button, .button,
 input {
   line-height: normal;
 }
 
-button,
+button, .button,
 select {
   text-transform: none;
 }
 
-button,
+button, .button,
 html input[type=button],
 input[type=reset],
 input[type=submit] {
@@ -288,7 +280,7 @@ input[type=submit] {
   *overflow: visible;
 }
 
-button[disabled],
+button[disabled], [disabled].button,
 html input[disabled] {
   cursor: default;
 }
@@ -313,7 +305,7 @@ input[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-button::-moz-focus-inner,
+button::-moz-focus-inner, .button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
@@ -620,6 +612,11 @@ html body .no-padding {
 .border-xl {
   border-style: solid;
   border-width: 10px;
+}
+
+/* tags */
+a.no-underscore {
+  text-decoration: none;
 }
 
 :root {
@@ -2975,7 +2972,7 @@ html body .warning-lightest-border-xl {
     max-width: 1337.6px;
   }
 }
-button {
+button, .button {
   display: inline-flex;
   align-items: center;
   background: #f5f5f7;
@@ -2985,207 +2982,207 @@ button {
   overflow: hidden;
   transition: all 0.5s;
 }
-button.icon-btn {
+button.icon-btn, .icon-btn.button {
   padding-right: 0.5rem;
 }
-button.short-btn {
+button.short-btn, .short-btn.button {
   padding: 0.25em;
   border: 0;
 }
-button.round-btn, .modal button.submit-btn {
+button.round-btn, .modal button.submit-btn, .round-btn.button, .modal .button.submit-btn {
   border-radius: 0.85rem;
 }
-button.square-btn {
+button.square-btn, .square-btn.button {
   border-radius: 0;
 }
-button .material-icons {
+button .material-icons, .button .material-icons {
   margin-left: 0.5rem;
 }
-button.white-bg {
+button.white-bg, .white-bg.button {
   border: 1px solid #f5f5f7;
 }
-button.black-bg {
+button.black-bg, .black-bg.button {
   border: 1px solid #222222;
 }
-button.primary-bg {
+button.primary-bg, .primary-bg.button {
   border: 1px solid #0d3cca;
 }
-button.secondary-bg {
+button.secondary-bg, .secondary-bg.button {
   border: 1px solid #0f7de4;
 }
-button.accent-bg {
+button.accent-bg, .accent-bg.button {
   border: 1px solid #48c774;
 }
-button.invert-bg {
+button.invert-bg, .invert-bg.button {
   border: 1px solid #c72222;
 }
-button.invert-secondary-bg {
+button.invert-secondary-bg, .invert-secondary-bg.button {
   border: 1px solid #f2cb05;
 }
-button.grey-bg {
+button.grey-bg, .grey-bg.button {
   border: 1px solid #838383;
 }
-button.error-bg {
+button.error-bg, .error-bg.button {
   border: 1px solid #c72222;
 }
-button.warning-bg {
+button.warning-bg, .warning-bg.button {
   border: 1px solid #f2cb05;
 }
-button.primary-darkest-bg {
+button.primary-darkest-bg, .primary-darkest-bg.button {
   border: 1px solid #04113a;
 }
-button.primary-darker-bg {
+button.primary-darker-bg, .primary-darker-bg.button {
   border: 1px solid #07206a;
 }
-button.primary-dark-bg {
+button.primary-dark-bg, .primary-dark-bg.button {
   border: 1px solid #0a2e9a;
 }
-button.primary-light-bg {
+button.primary-light-bg, .primary-light-bg.button {
   border: 1px solid #1a4ff0;
 }
-button.primary-lighter-bg {
+button.primary-lighter-bg, .primary-lighter-bg.button {
   border: 1px solid #4a74f3;
 }
-button.primary-lightest-bg {
+button.primary-lightest-bg, .primary-lightest-bg.button {
   border: 1px solid #7a99f6;
 }
-button.secondary-darkest-bg {
+button.secondary-darkest-bg, .secondary-darkest-bg.button {
   border: 1px solid #062e54;
 }
-button.secondary-darker-bg {
+button.secondary-darker-bg, .secondary-darker-bg.button {
   border: 1px solid #094984;
 }
-button.secondary-dark-bg {
+button.secondary-dark-bg, .secondary-dark-bg.button {
   border: 1px solid #0c63b4;
 }
-button.secondary-light-bg {
+button.secondary-light-bg, .secondary-light-bg.button {
   border: 1px solid #3496f2;
 }
-button.secondary-lighter-bg {
+button.secondary-lighter-bg, .secondary-lighter-bg.button {
   border: 1px solid #64aff5;
 }
-button.secondary-lightest-bg {
+button.secondary-lightest-bg, .secondary-lightest-bg.button {
   border: 1px solid #94c8f8;
 }
-button.accent-darkest-bg {
+button.accent-darkest-bg, .accent-darkest-bg.button {
   border: 1px solid #1c5a31;
 }
-button.accent-darker-bg {
+button.accent-darker-bg, .accent-darker-bg.button {
   border: 1px solid #288147;
 }
-button.accent-dark-bg {
+button.accent-dark-bg, .accent-dark-bg.button {
   border: 1px solid #34a85c;
 }
-button.accent-light-bg {
+button.accent-light-bg, .accent-light-bg.button {
   border: 1px solid #6fd392;
 }
-button.accent-lighter-bg {
+button.accent-lighter-bg, .accent-lighter-bg.button {
   border: 1px solid #96dfaf;
 }
-button.accent-lightest-bg {
+button.accent-lightest-bg, .accent-lightest-bg.button {
   border: 1px solid #bdebcd;
 }
-button.invert-darkest-bg {
+button.invert-darkest-bg, .invert-darkest-bg.button {
   border: 1px solid #440c0c;
 }
-button.invert-darker-bg {
+button.invert-darker-bg, .invert-darker-bg.button {
   border: 1px solid #701313;
 }
-button.invert-dark-bg {
+button.invert-dark-bg, .invert-dark-bg.button {
   border: 1px solid #9b1b1b;
 }
-button.invert-light-bg {
+button.invert-light-bg, .invert-light-bg.button {
   border: 1px solid #de3e3e;
 }
-button.invert-lighter-bg {
+button.invert-lighter-bg, .invert-lighter-bg.button {
   border: 1px solid #e56a6a;
 }
-button.invert-lightest-bg {
+button.invert-lightest-bg, .invert-lightest-bg.button {
   border: 1px solid #ed9595;
 }
-button.invert-secondary-darkest-bg {
+button.invert-secondary-darkest-bg, .invert-secondary-darkest-bg.button {
   border: 1px solid #5c4d02;
 }
-button.invert-secondary-darker-bg {
+button.invert-secondary-darker-bg, .invert-secondary-darker-bg.button {
   border: 1px solid #8e7703;
 }
-button.invert-secondary-dark-bg {
+button.invert-secondary-dark-bg, .invert-secondary-dark-bg.button {
   border: 1px solid #c0a104;
 }
-button.invert-secondary-light-bg {
+button.invert-secondary-light-bg, .invert-secondary-light-bg.button {
   border: 1px solid #fbd92f;
 }
-button.invert-secondary-lighter-bg {
+button.invert-secondary-lighter-bg, .invert-secondary-lighter-bg.button {
   border: 1px solid #fce261;
 }
-button.invert-secondary-lightest-bg {
+button.invert-secondary-lightest-bg, .invert-secondary-lightest-bg.button {
   border: 1px solid #fdeb93;
 }
-button.grey-darkest-bg {
+button.grey-darkest-bg, .grey-darkest-bg.button {
   border: 1px solid #373737;
 }
-button.grey-darker-bg {
+button.grey-darker-bg, .grey-darker-bg.button {
   border: 1px solid #505050;
 }
-button.grey-dark-bg {
+button.grey-dark-bg, .grey-dark-bg.button {
   border: 1px solid #6a6a6a;
 }
-button.grey-light-bg {
+button.grey-light-bg, .grey-light-bg.button {
   border: 1px solid #9d9d9d;
 }
-button.grey-lighter-bg {
+button.grey-lighter-bg, .grey-lighter-bg.button {
   border: 1px solid #b6b6b6;
 }
-button.grey-lightest-bg {
+button.grey-lightest-bg, .grey-lightest-bg.button {
   border: 1px solid #d0d0d0;
 }
-button.error-darkest-bg {
+button.error-darkest-bg, .error-darkest-bg.button {
   border: 1px solid #440c0c;
 }
-button.error-darker-bg {
+button.error-darker-bg, .error-darker-bg.button {
   border: 1px solid #701313;
 }
-button.error-dark-bg {
+button.error-dark-bg, .error-dark-bg.button {
   border: 1px solid #9b1b1b;
 }
-button.error-light-bg {
+button.error-light-bg, .error-light-bg.button {
   border: 1px solid #de3e3e;
 }
-button.error-lighter-bg {
+button.error-lighter-bg, .error-lighter-bg.button {
   border: 1px solid #e56a6a;
 }
-button.error-lightest-bg {
+button.error-lightest-bg, .error-lightest-bg.button {
   border: 1px solid #ed9595;
 }
-button.warning-darkest-bg {
+button.warning-darkest-bg, .warning-darkest-bg.button {
   border: 1px solid #5c4d02;
 }
-button.warning-darker-bg {
+button.warning-darker-bg, .warning-darker-bg.button {
   border: 1px solid #8e7703;
 }
-button.warning-dark-bg {
+button.warning-dark-bg, .warning-dark-bg.button {
   border: 1px solid #c0a104;
 }
-button.warning-light-bg {
+button.warning-light-bg, .warning-light-bg.button {
   border: 1px solid #fbd92f;
 }
-button.warning-lighter-bg {
+button.warning-lighter-bg, .warning-lighter-bg.button {
   border: 1px solid #fce261;
 }
-button.warning-lightest-bg {
+button.warning-lightest-bg, .warning-lightest-bg.button {
   border: 1px solid #fdeb93;
 }
-button:not([class*=hover-]):hover {
+button:not([class*=hover-]):hover, .button:not([class*=hover-]):hover {
   background: #d0d0d0;
 }
-button:not([class*=active-]):active {
+button:not([class*=active-]):active, .button:not([class*=active-]):active {
   transform: scale(0.95);
 }
 
-.button-wrap button {
+.button-wrap button, .button-wrap .button {
   margin-left: 8px;
 }
-.button-wrap button:first-child {
+.button-wrap button:first-child, .button-wrap .button:first-child {
   margin-left: 0;
 }
 
@@ -4144,7 +4141,7 @@ ul ul {
   position: relative;
 }
 
-.scroller > button {
+.scroller > button, .scroller > .button {
   position: absolute;
   display: flex;
   align-content: center;
@@ -4160,11 +4157,11 @@ ul ul {
   transition: opacity 0.5s;
 }
 
-.scroller > button:hover {
+.scroller > button:hover, .scroller > .button:hover {
   opacity: 1;
 }
 
-.scroller > button > .material-icons {
+.scroller > button > .material-icons, .scroller > .button > .material-icons {
   margin: 0;
 }
 
@@ -4218,7 +4215,7 @@ td {
   text-align: left;
 }
 
-.table-wrap button {
+.table-wrap button, .table-wrap .button {
   display: none;
   min-height: 1.5em;
   min-width: 1.5em;
@@ -4249,7 +4246,7 @@ td {
   opacity: 1;
 }
 
-.table-wrap button.active {
+.table-wrap button.active, .table-wrap .active.button {
   display: flex;
 }
 
@@ -4296,12 +4293,12 @@ td {
   color: #f5f5f7;
 }
 
-.tab-buttons > button {
+.tab-buttons > button, .tab-buttons > .button {
   border: 0;
   background: transparent;
 }
 
-.tab-buttons > button.selected {
+.tab-buttons > button.selected, .tab-buttons > .selected.button {
   font-weight: bold;
 }
 

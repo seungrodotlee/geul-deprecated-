@@ -5,6 +5,11 @@ body {
   font-family: "Noto Sans KR", sans-serif;
 }
 
+.go-github {
+  top: 1rem;
+  right: 1rem;
+}
+
 .main-title {
   font-size: 0;
 }
