@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GEUL</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap"
       rel="stylesheet"
@@ -12,22 +11,39 @@
     <link rel="stylesheet" href="./croquis/croquis.css" />
     <link rel="stylesheet" href="main.css" />
   </head>
-  <body>
-    <div class="container full-y flex centering">
-      <div>
-        <h1 class="title centered-text">
-          <span class="black">G</span>
-          <span class="bold">E</span>
-          <span class="regular">U</span>
-          <span class="thin">L</span>
-        </h1>
-        <h4 id="example" class="centered-text">한글을 더 아름답게</h4>
-        <p class="input-wrap flex">
-          <input id="input" type="text" placeholder="문구를 입력해보세요" />
-          <button id="submit" class="square-btn hover-back">타이핑</button>
-        </p>
-        <p id="result">&nbsp;</p>
+  <body class="show-on-load">
+    <div id="landing" class="flex vertical centering abs centered">
+      <h1 class="main-title centered-text">
+        <span class="black">G</span>
+        <span class="bold">E</span>
+        <span class="regular">U</span>
+        <span class="thin">L</span>
+      </h1>
+      <spacer- data-size="0.5rem"></spacer->
+      <h4 id="example" class="centered-text"></h4>
+      <spacer- data-size="1rem"></spacer->
+      <button
+        id="start-btn"
+        class="text-l bold square-btn hover-back black-border-r"
+      >
+        타이핑해보기
+      </button>
+    </div>
+    <div id="demo-area" class="abs centered-x _hidden half-x">
+      <button id="back-btn" class="text-xxl hover-scale no-padding">
+        <icon->keyboard_backspace</icon->
+      </button>
+      <p class="input-wrap flex">
+        <input id="input" type="text" placeholder="타이핑해보세요" />
+      </p>
+      <div id="button-wrap">
+        <drop-down id="type-selector">
+          <div class="selected" data-title="geul">새로쓰기 (Geul.geul)</div>
+          <div data-title="add">이어쓰기 (Geul.add)</div>
+          <div data-title="reverse">반전 (Geul.reverse)</div>
+        </drop-down>
       </div>
+      <p id="result">여기에서 타이핑 효과를 확인하세요</p>
     </div>
     <script src="../dist/geul.js"></script>
     <script src="./croquis/croquis.js"></script>
