@@ -2,11 +2,13 @@ import Hangul from "hangul-js";
 import { resolve } from "path";
 
 class Geul {
-  constructor(source, speed = 100, element) {
+  constructor(source, element, speed = this._speed) {
     this.source = source;
     this.speed = speed;
     this.element = element;
     this.running = false;
+
+    Geul._elements.push(element);
 
     this.particles = Hangul.disassemble(this.source);
   }
@@ -20,6 +22,10 @@ class Geul {
 
     this.source = val;
     this.particles = Hangul.disassemble(this.source);
+  }
+
+  setSpeed(val) {
+    this.speed = val;
   }
 
   run(delay = 0) {
@@ -159,11 +165,27 @@ class Geul {
   }
 }
 
-HTMLElement.prototype.geul = function (source, delay = 0, speed = 100) {
+Geul._elements = [];
+
+Geul._speed = 100;
+
+Geul.setStaticSpeed = function (value) {
+  Geul._elements.forEach((e) => {
+    if (e._g.speed == Geul._speed) {
+      e._g.setSpeed(value);
+    }
+  });
+
+  Geul._speed = value;
+};
+
+console.log(Geul._speed);
+
+HTMLElement.prototype.geul = function (source, delay = 0, speed = Geul._speed) {
   if ("_g" in this) {
     this._g.setValue(source);
   } else {
-    this._g = new Geul(source, speed, this);
+    this._g = new Geul(source, this, speed);
   }
 
   let p = this._g.run(delay);
@@ -174,12 +196,12 @@ HTMLElement.prototype.geul = function (source, delay = 0, speed = 100) {
 HTMLElement.prototype.reverse = function (
   position,
   delay = 0,
-  speed = 100,
+  speed = Geul._speed,
   source = this.textContent
 ) {
   console.log(this.textContent);
   if (!("_g" in this)) {
-    this._g = new Geul(source, speed, this);
+    this._g = new Geul(source, this, speed);
   }
 
   let p = this._g.reverse(position, delay);
@@ -187,14 +209,22 @@ HTMLElement.prototype.reverse = function (
   return p;
 };
 
-HTMLElement.prototype.add = function (value, delay = 0) {
+HTMLElement.prototype.add = function (value, delay = 0, speed = Geul._speed) {
   if (!("_g" in this)) {
-    this._g = new Geul(this.textContent, speed, this);
+    this._g = new Geul(this.textContent, this, speed);
   }
 
   let p = this._g.add(value, delay);
 
   return p;
+};
+
+HTMLElement.prototype.setTypingSpeed = function (value) {
+  if (!("_g" in this)) {
+    this._g = new Geul("", this, value);
+  } else {
+    this._g.setSpeed(value);
+  }
 };
 
 window.Geul = Geul;
