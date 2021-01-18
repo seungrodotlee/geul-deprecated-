@@ -2,15 +2,19 @@ import Hangul from "hangul-js";
 import { resolve } from "path";
 
 class Geul {
-  constructor(source, element, speed = this._speed) {
-    this.source = source;
+  constructor(value, element, speed = Geul._speed) {
+    this.value = value;
     this.speed = speed;
     this.element = element;
     this.running = false;
 
-    Geul._elements.push(element);
+    if (!("_g" in element) || element._g != this) {
+      element._g = this;
+    }
 
-    this.particles = Hangul.disassemble(this.source);
+    Geul._instances.push(this);
+
+    this.particles = Hangul.disassemble(this.value);
   }
 
   setValue(val) {
@@ -20,15 +24,15 @@ class Geul {
       return;
     }
 
-    this.source = val;
-    this.particles = Hangul.disassemble(this.source);
+    this.value = val;
+    this.particles = Hangul.disassemble(this.value);
   }
 
   setSpeed(val) {
     this.speed = val;
   }
 
-  run(delay = 0) {
+  run(delay = 0, value = this.value) {
     let prom = new Promise((resolve, reject) => {
       if (this.running) {
         let e = Error("Typing is already in progress");
@@ -37,10 +41,17 @@ class Geul {
         return;
       }
 
+      if (value != this.value) {
+        this.setValue(value);
+      }
+
       this.running = true;
 
       if (!(this.element instanceof HTMLElement)) {
-        reject("wrong element!");
+        let e = Error("Wrong element!");
+        console.error(e.stack);
+        reject(e);
+        return;
       }
       setTimeout(() => {
         for (let i in this.particles) {
@@ -66,7 +77,14 @@ class Geul {
 
   runFrom(position, delay = 0) {
     if (typeof position == "number") {
-      position = this.source.slice(0, position);
+      position = this.value.slice(0, position);
+    }
+
+    if (Hangul.search(this.value, position) == -1) {
+      let e = Error(`Can't start typing from ${this.value} to ${position}`);
+      console.error(e.stack);
+      reject(e);
+      return;
     }
 
     let startIdx = Hangul.disassemble(position).length;
@@ -82,7 +100,10 @@ class Geul {
       this.running = true;
 
       if (!(this.element instanceof HTMLElement)) {
-        reject("wrong element!");
+        let e = Error("Wrong element!");
+        console.error(e.stack);
+        reject(e);
+        return;
       }
       setTimeout(() => {
         for (let i = startIdx; i < this.particles.length; i++) {
@@ -107,19 +128,19 @@ class Geul {
   }
 
   add(value, delay = 0) {
-    let older = this.source;
+    let older = this.value;
 
-    this.setValue(this.source + value);
+    this.setValue(this.value + value);
     this.runFrom(older, delay);
   }
 
   reverse(position, delay = 0) {
     if (typeof position == "number") {
-      position = this.source.slice(0, position);
+      position = this.value.slice(0, position);
     }
 
-    if (this.source.indexOf(position) == -1) {
-      let e = Error(`Can't reverse from ${this.source} to ${position}`);
+    if (Hangul.search(this.value, position) == -1) {
+      let e = Error(`Can't reverse from ${this.value} to ${position}`);
       console.error(e.stack);
       reject(e);
       return;
@@ -138,7 +159,10 @@ class Geul {
       this.running = true;
 
       if (!(this.element instanceof HTMLElement)) {
-        reject("wrong element!");
+        let e = Error("Wrong element!");
+        console.error(e.stack);
+        reject(e);
+        return;
       }
 
       setTimeout(() => {
@@ -165,14 +189,14 @@ class Geul {
   }
 }
 
-Geul._elements = [];
+Geul._instances = [];
 
 Geul._speed = 100;
 
 Geul.setStaticSpeed = function (value) {
-  Geul._elements.forEach((e) => {
-    if (e._g.speed == Geul._speed) {
-      e._g.setSpeed(value);
+  Geul._instances.forEach((g) => {
+    if (g.speed == Geul._speed) {
+      g.setSpeed(value);
     }
   });
 
@@ -193,6 +217,16 @@ HTMLElement.prototype.geul = function (source, delay = 0, speed = Geul._speed) {
   return p;
 };
 
+HTMLElement.prototype.add = function (value, delay = 0, speed = Geul._speed) {
+  if (!("_g" in this)) {
+    this._g = new Geul(this.textContent, this, speed);
+  }
+
+  let p = this._g.add(value, delay);
+
+  return p;
+};
+
 HTMLElement.prototype.reverse = function (
   position,
   delay = 0,
@@ -209,16 +243,13 @@ HTMLElement.prototype.reverse = function (
   return p;
 };
 
-HTMLElement.prototype.add = function (value, delay = 0, speed = Geul._speed) {
+HTMLElement.prototype.setTypingValue = function (value) {
   if (!("_g" in this)) {
-    this._g = new Geul(this.textContent, this, speed);
+    this._g = new Geul(value, this, 0);
+  } else {
+    this._g.setValue(value);
   }
-
-  let p = this._g.add(value, delay);
-
-  return p;
 };
-
 HTMLElement.prototype.setTypingSpeed = function (value) {
   if (!("_g" in this)) {
     this._g = new Geul("", this, value);

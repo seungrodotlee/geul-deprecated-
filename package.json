@@ -14,7 +14,7 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "build": "./node_modules/.bin/webpack",
+    "build": "./node_modules/.bin/webpack && cp dist/geul.js demo/geul.js",
     "watch": "./node_modules/.bin/webpack --watch"
   },
   "repository": {
