@@ -1,7 +1,8 @@
 # Geul.js
 
-![DOWNLOADS](https://img.shields.io/github/downloads/seungrolee/geul/total?logoColor=%230d3cca&style=for-the-badge)
-![LICENSE](https://img.shields.io/github/license/seungrolee/geul?style=for-the-badge)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fseungrolee%2Fgeul&count_bg=%23253EC2&title_bg=%233D3D3D&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
+![DOWNLOADS](https://img.shields.io/github/downloads/seungrolee/geul/total?color=0f7de4&style=flat-square)
+![LICENSE](https://img.shields.io/github/license/seungrolee/geul?style=flat-square)
 
 <br>
 <img src="logo.png">
