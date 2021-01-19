@@ -1,15 +1,5 @@
-@import url(https://fonts.googleapis.com/css2?family=Material+Icons);
-body {
-  background: #f5f5f7;
-  color: #222222;
-}
-
-body.dark-mode {
-  background: #222222;
-  color: #f5f5f7;
-}
-
 /* transitions */
+@import url(https://fonts.googleapis.com/css2?family=Material+Icons);
 html body .before-appear-by-fade {
   opacity: 0;
 }
@@ -577,7 +567,7 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.no-background, .modal .cancel-btn, .dropdown-head {
+.no-background, .modal .cancel-btn, html body .dropdown-head {
   background: transparent;
 }
 
@@ -680,6 +670,34 @@ a.no-underscore {
   --warning-lightest: #fdeb93;
 }
 
+body {
+  background: #f5f5f7;
+  color: #222222;
+}
+
+body.dark-mode {
+  background: #222222;
+  color: #f5f5f7;
+}
+
+.deep-bg {
+  color: #222222;
+  background: white;
+}
+
+.dark-mode .deep-bg {
+  color: #f5f5f7;
+  background: black;
+}
+
+.deep-color {
+  color: black;
+}
+
+.dark-mode .deep-color {
+  color: white;
+}
+
 .real-white-color {
   color: white;
 }
@@ -736,6 +754,22 @@ html body .white-text {
 
 html body .black-text {
   color: #222222;
+}
+
+html body .foreground-text {
+  color: #222222;
+}
+
+html body .background-text {
+  color: #f5f5f7;
+}
+
+html body .deep-foreground-text {
+  color: black;
+}
+
+html body .deep-background-text {
+  color: white;
 }
 
 html body .primary-text {
@@ -970,6 +1004,26 @@ html body .white-bg {
 html body .black-bg {
   background: #222222;
   color: #f5f5f7;
+}
+
+html body .foreground-bg {
+  background: #222222;
+  color: #f5f5f7;
+}
+
+html body .background-bg {
+  background: #f5f5f7;
+  color: #222222;
+}
+
+html body .deep-foreground-bg {
+  background: black;
+  color: #f5f5f7;
+}
+
+html body .deep-background-bg {
+  background: white;
+  color: #222222;
 }
 
 html body .primary-bg {
@@ -1298,6 +1352,102 @@ html body .black-border-xl {
   border-style: solid;
   border-width: 10px;
   border-color: #222222 !important;
+}
+
+html body .foreground-border {
+  border-color: #222222 !important;
+}
+html body .foreground-border-s {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #222222 !important;
+}
+html body .foreground-border-r {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #222222 !important;
+}
+html body .foreground-border-l {
+  border-style: solid;
+  border-width: 5px;
+  border-color: #222222 !important;
+}
+html body .foreground-border-xl {
+  border-style: solid;
+  border-width: 10px;
+  border-color: #222222 !important;
+}
+
+html body .background-border {
+  border-color: #f5f5f7 !important;
+}
+html body .background-border-s {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f5f5f7 !important;
+}
+html body .background-border-r {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #f5f5f7 !important;
+}
+html body .background-border-l {
+  border-style: solid;
+  border-width: 5px;
+  border-color: #f5f5f7 !important;
+}
+html body .background-border-xl {
+  border-style: solid;
+  border-width: 10px;
+  border-color: #f5f5f7 !important;
+}
+
+html body .deep-foreground-border {
+  border-color: black !important;
+}
+html body .deep-foreground-border-s {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black !important;
+}
+html body .deep-foreground-border-r {
+  border-style: solid;
+  border-width: 3px;
+  border-color: black !important;
+}
+html body .deep-foreground-border-l {
+  border-style: solid;
+  border-width: 5px;
+  border-color: black !important;
+}
+html body .deep-foreground-border-xl {
+  border-style: solid;
+  border-width: 10px;
+  border-color: black !important;
+}
+
+html body .deep-background-border {
+  border-color: white !important;
+}
+html body .deep-background-border-s {
+  border-style: solid;
+  border-width: 1px;
+  border-color: white !important;
+}
+html body .deep-background-border-r {
+  border-style: solid;
+  border-width: 3px;
+  border-color: white !important;
+}
+html body .deep-background-border-l {
+  border-style: solid;
+  border-width: 5px;
+  border-color: white !important;
+}
+html body .deep-background-border-xl {
+  border-style: solid;
+  border-width: 10px;
+  border-color: white !important;
 }
 
 html body .primary-border {
@@ -2644,6 +2794,138 @@ html body .warning-lightest-border-xl {
   border-color: #fdeb93 !important;
 }
 
+html body.dark-mode .foreground-text {
+  color: #f5f5f7;
+}
+
+html body.dark-mode .background-text {
+  color: #222222;
+}
+
+html body.dark-mode .deep-foreground-text {
+  color: white;
+}
+
+html body.dark-mode .deep-background-text {
+  color: black;
+}
+
+html body.dark-mode .foreground-bg {
+  background: #f5f5f7;
+  color: #222222;
+}
+
+html body.dark-mode .background-bg {
+  background: #222222;
+  color: #f5f5f7;
+}
+
+html body.dark-mode .deep-foreground-bg {
+  background: white;
+  color: #222222;
+}
+
+html body.dark-mode .deep-background-bg {
+  background: black;
+  color: #f5f5f7;
+}
+
+html body.dark-mode .foreground-border {
+  border-color: #f5f5f7 !important;
+}
+html body.dark-mode .foreground-border-s {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f5f5f7 !important;
+}
+html body.dark-mode .foreground-border-r {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #f5f5f7 !important;
+}
+html body.dark-mode .foreground-border-l {
+  border-style: solid;
+  border-width: 5px;
+  border-color: #f5f5f7 !important;
+}
+html body.dark-mode .foreground-border-xl {
+  border-style: solid;
+  border-width: 10px;
+  border-color: #f5f5f7 !important;
+}
+
+html body.dark-mode .background-border {
+  border-color: #222222 !important;
+}
+html body.dark-mode .background-border-s {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #222222 !important;
+}
+html body.dark-mode .background-border-r {
+  border-style: solid;
+  border-width: 3px;
+  border-color: #222222 !important;
+}
+html body.dark-mode .background-border-l {
+  border-style: solid;
+  border-width: 5px;
+  border-color: #222222 !important;
+}
+html body.dark-mode .background-border-xl {
+  border-style: solid;
+  border-width: 10px;
+  border-color: #222222 !important;
+}
+
+html body.dark-mode .deep-foreground-border {
+  border-color: white !important;
+}
+html body.dark-mode .deep-foreground-border-s {
+  border-style: solid;
+  border-width: 1px;
+  border-color: white !important;
+}
+html body.dark-mode .deep-foreground-border-r {
+  border-style: solid;
+  border-width: 3px;
+  border-color: white !important;
+}
+html body.dark-mode .deep-foreground-border-l {
+  border-style: solid;
+  border-width: 5px;
+  border-color: white !important;
+}
+html body.dark-mode .deep-foreground-border-xl {
+  border-style: solid;
+  border-width: 10px;
+  border-color: white !important;
+}
+
+html body.dark-mode .deep-background-border {
+  border-color: black !important;
+}
+html body.dark-mode .deep-background-border-s {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black !important;
+}
+html body.dark-mode .deep-background-border-r {
+  border-style: solid;
+  border-width: 3px;
+  border-color: black !important;
+}
+html body.dark-mode .deep-background-border-l {
+  border-style: solid;
+  border-width: 5px;
+  border-color: black !important;
+}
+html body.dark-mode .deep-background-border-xl {
+  border-style: solid;
+  border-width: 10px;
+  border-color: black !important;
+}
+
 .row {
   display: flex;
 }
@@ -3004,6 +3286,18 @@ button.white-bg, .white-bg.button {
 button.black-bg, .black-bg.button {
   border: 1px solid #222222;
 }
+button.foreground-bg, .foreground-bg.button {
+  border: 1px solid #222222;
+}
+button.background-bg, .background-bg.button {
+  border: 1px solid #f5f5f7;
+}
+button.deep-foreground-bg, .deep-foreground-bg.button {
+  border: 1px solid black;
+}
+button.deep-background-bg, .deep-background-bg.button {
+  border: 1px solid white;
+}
 button.primary-bg, .primary-bg.button {
   border: 1px solid #0d3cca;
 }
@@ -3186,6 +3480,15 @@ button:not([class*=active-]):active, .button:not([class*=active-]):active {
   margin-left: 0;
 }
 
+.dark-mode button, .dark-mode .button {
+  color: #f5f5f7;
+  background: #222222;
+}
+.dark-mode button:not([class*=hover-]):hover,
+.dark-mode .button:not([class*=hover-]):hover {
+  background: #373737;
+}
+
 ul {
   list-style: none;
 }
@@ -3281,6 +3584,54 @@ ul ul {
 }
 .hover-back.black-text:hover {
   color: #f5f5f7;
+}
+.hover-underscore.foreground-text::after, .hover-back.foreground-text::after {
+  background: #222222;
+}
+.hover-back.foreground-bg:hover {
+  color: #222222;
+}
+.hover-back.foreground-bg::after {
+  background: #f5f5f7;
+}
+.hover-back.foreground-text:hover {
+  color: #f5f5f7;
+}
+.hover-underscore.background-text::after, .hover-back.background-text::after {
+  background: #f5f5f7;
+}
+.hover-back.background-bg:hover {
+  color: #f5f5f7;
+}
+.hover-back.background-bg::after {
+  background: #222222;
+}
+.hover-back.background-text:hover {
+  color: #222222;
+}
+.hover-underscore.deep-foreground-text::after, .hover-back.deep-foreground-text::after {
+  background: black;
+}
+.hover-back.deep-foreground-bg:hover {
+  color: black;
+}
+.hover-back.deep-foreground-bg::after {
+  background: #f5f5f7;
+}
+.hover-back.deep-foreground-text:hover {
+  color: #f5f5f7;
+}
+.hover-underscore.deep-background-text::after, .hover-back.deep-background-text::after {
+  background: white;
+}
+.hover-back.deep-background-bg:hover {
+  color: white;
+}
+.hover-back.deep-background-bg::after {
+  background: #222222;
+}
+.hover-back.deep-background-text:hover {
+  color: #222222;
 }
 .hover-underscore.primary-text::after, .hover-back.primary-text::after {
   background: #0d3cca;
@@ -3955,6 +4306,13 @@ ul ul {
   color: #222222;
 }
 
+.dark-mode .hover-back:hover {
+  color: #222222;
+}
+.dark-mode .hover-back::after {
+  background: #f5f5f7;
+}
+
 .article-map.always-opened ul ul {
   display: block;
 }
@@ -4006,14 +4364,14 @@ ul ul {
   clip-path: polygon(-100vh 0, 100vh 0, 100% 100vh, 0 100vh);
 }
 
-.dropdown-head {
+html body .dropdown-head {
   position: relative;
   border-radius: 0.25rem;
   background: transparent;
   z-index: 2;
 }
 
-.dropdown .dropdown-head:hover {
+html body .dropdown .dropdown-head:hover {
   background: transparent;
 }
 
@@ -4071,19 +4429,29 @@ ul ul {
 }
 
 .dropdown-content > .selected {
-  background: #2e36a8;
+  background: #0d3cca;
   color: white;
 }
 
 .dropdown-content > .selected:hover {
-  background: #242a85;
+  background: #1a4ff0;
   color: white;
 }
 
 .dropdown-content > hr {
   height: 1px;
-  background: #dadada;
+  background: #b6b6b6;
   border: 0;
+}
+
+.dark-mode .dropdown-content {
+  background: black;
+}
+.dark-mode .dropdown.active .dropdown-content {
+  color: #f5f5f7;
+}
+.dark-mode .dropdown-content > div:hover {
+  background: #373737;
 }
 
 .modal {

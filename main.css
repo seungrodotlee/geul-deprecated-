@@ -5,7 +5,12 @@ body {
   font-family: "Noto Sans KR", sans-serif;
 }
 
-.go-github {
+/* body,
+body * {
+  transition: all 0.5s;
+} */
+
+.floating-button-wrap {
   top: 1rem;
   right: 1rem;
 }
@@ -23,7 +28,6 @@ body {
 }
 
 .input-wrap input {
-  border-bottom: 1px solid var(--black);
   width: 100%;
 }
 
@@ -42,10 +46,5 @@ body {
 #result {
   min-height: 50vh;
   padding: 0.5rem;
-  background: white;
   box-sizing: content-box;
-}
-
-.dropdown {
-  background: white;
 }
