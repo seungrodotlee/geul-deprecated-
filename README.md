@@ -1,6 +1,11 @@
 # Geul.js
 
+![DOWNLOADS](https://img.shields.io/github/downloads/seungrolee/geul/total?logoColor=%230d3cca&style=for-the-badge)
+![LICENSE](https://img.shields.io/github/license/seungrolee/geul?style=for-the-badge)
+
+<br>
 <img src="logo.png">
+<br>
 
 > Geul은 한글에 초점을 둔 타이핑 애니메이션을 위한 라이브러리입니다. <br> 데모는 [여기서](https://seungrolee.github.io/geul/) 보실 수 있습니다!
 
