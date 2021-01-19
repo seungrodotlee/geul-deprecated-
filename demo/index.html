@@ -100,31 +100,39 @@
       <spacer- data-size="1rem"></spacer->
       <button
         id="start-btn"
-        class="text-l bold square-btn hover-back black-border-r"
+        class="text-l bold square-btn hover-back foreground-border-r"
       >
         타이핑해보기
       </button>
     </div>
-    <a
-      href="https://github.com/seungrolee/geul/settings"
-      class="go-github abs button no-underscore"
-      >GitHub</a
-    >
+    <div class="floating-button-wrap abs">
+      <button id="color-changer">DarkMode</button>
+      <a
+        href="https://github.com/seungrolee/geul/settings"
+        class="go-github button no-underscore"
+        >GitHub</a
+      >
+    </div>
     <div id="demo-area" class="abs centered-x _hidden half-x">
       <button id="back-btn" class="text-xxl hover-scale no-padding">
         <icon->keyboard_backspace</icon->
       </button>
       <p class="input-wrap flex">
-        <input id="input" type="text" placeholder="타이핑해보세요" />
+        <input
+          id="input"
+          class="deep-background-bg"
+          type="text"
+          placeholder="타이핑해보세요"
+        />
       </p>
       <div id="button-wrap">
-        <drop-down id="type-selector">
+        <drop-down id="type-selector" class="deep-bg">
           <div class="selected" data-title="geul">새로쓰기 (Geul.geul)</div>
           <div data-title="add">이어쓰기 (Geul.add)</div>
           <div data-title="reverse">반전 (Geul.reverse)</div>
         </drop-down>
       </div>
-      <p id="result">여기에서 타이핑 효과를 확인하세요</p>
+      <p id="result" class="deep-bg">여기에서 타이핑 효과를 확인하세요</p>
     </div>
     <script src="./geul.js"></script>
     <script src="./croquis/croquis.js"></script>

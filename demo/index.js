@@ -12,6 +12,31 @@ croquis.loaded(() => {
 
   let last = null;
   let type = "geul";
+
+  let currentColor = croquis.getCookie("colorMode");
+  console.log(currentColor);
+  if (currentColor != null && currentColor == "dark") {
+    document.body.classList.add("dark-mode");
+    croquis.colorChanger.textContent = "WhiteMode";
+  } else {
+    currentColor = "white";
+  }
+
+  croquis.colorChanger.addEventListener("click", () => {
+    console.log(currentColor);
+    if (currentColor == "dark") {
+      currentColor = "white";
+      croquis.setCookie("colorMode", "white", 7);
+      document.body.classList.remove("dark-mode");
+      croquis.colorChanger.textContent = "WhiteMode";
+    } else if (currentColor == "white") {
+      currentColor = "dark";
+      croquis.setCookie("colorMode", "dark", 7);
+      document.body.classList.add("dark-mode");
+      croquis.colorChanger.textContent = "DarkMode";
+    }
+  });
+
   croquis.input.addEventListener("keydown", (e) => {
     last = e;
 
