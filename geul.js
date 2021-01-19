@@ -33,6 +33,11 @@ class Geul {
   }
 
   run(delay = 0, value = this.value) {
+    if (value === "") {
+      console.warn("Value for typing can't be empty string!");
+      return;
+    }
+
     let prom = new Promise((resolve, reject) => {
       if (this.running) {
         let e = Error("Typing is already in progress");
@@ -62,7 +67,7 @@ class Geul {
                 this.particles.slice(0, d)
               );
 
-              if (d == this.particles.length) {
+              if (d === this.particles.length) {
                 this.running = false;
                 resolve(this.source);
               }
@@ -76,11 +81,11 @@ class Geul {
   }
 
   runFrom(position, delay = 0) {
-    if (typeof position == "number") {
+    if (typeof position === "number") {
       position = this.value.slice(0, position);
     }
 
-    if (Hangul.search(this.value, position) == -1) {
+    if (Hangul.search(this.value, position) === -1) {
       let e = Error(`Can't start typing from ${this.value} to ${position}`);
       console.error(e.stack);
       reject(e);
@@ -114,7 +119,7 @@ class Geul {
                 this.particles.slice(0, d)
               );
 
-              if (d == this.particles.length) {
+              if (d === this.particles.length) {
                 this.running = false;
                 resolve(this.source);
               }
@@ -128,6 +133,11 @@ class Geul {
   }
 
   add(value, delay = 0) {
+    if (value === "") {
+      console.warn("Value for typing can't be empty string!");
+      return;
+    }
+
     let older = this.value;
 
     this.setValue(this.value + value);
@@ -135,11 +145,11 @@ class Geul {
   }
 
   reverse(position, delay = 0) {
-    if (typeof position == "number") {
+    if (typeof position === "number") {
       position = this.value.slice(0, position);
     }
 
-    if (Hangul.search(this.value, position) == -1) {
+    if (Hangul.search(this.value, position) === -1) {
       let e = Error(`Can't reverse from ${this.value} to ${position}`);
       console.error(e.stack);
       reject(e);
@@ -174,7 +184,7 @@ class Geul {
                 this.particles.slice(0, pos)
               );
 
-              if (d == targetIdx) {
+              if (d === targetIdx) {
                 this.running = false;
                 this.setValue(Hangul.assemble(this.particles.slice(0, pos)));
                 resolve(position);
@@ -195,7 +205,7 @@ Geul._speed = 100;
 
 Geul.setStaticSpeed = function (value) {
   Geul._instances.forEach((g) => {
-    if (g.speed == Geul._speed) {
+    if (g.speed === Geul._speed) {
       g.setSpeed(value);
     }
   });
