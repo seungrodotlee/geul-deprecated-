@@ -1,6 +1,6 @@
 {
   "name": "geul",
-  "version": "1.0.0",
+  "version": "0.1.2",
   "description": "typing animation library focused on korean lang.",
   "main": "geul.js",
   "dependencies": {

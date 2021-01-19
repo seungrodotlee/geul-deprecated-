@@ -16,9 +16,15 @@
 
 ## 설치
 
-### node.js
+### NPM
 
-npm을 통한 배포는 아직 준비중입니다!
+```
+$ npm i geul
+```
+
+```js
+import Geul from "geul"; //혹은 require("geul");
+```
 
 ### 정적 웹페이지
 
