@@ -14,8 +14,7 @@ croquis.loaded(() => {
   let type = "geul";
 
   let currentColor = croquis.getCookie("colorMode");
-  console.log(currentColor);
-  if (currentColor != null && currentColor == "dark") {
+  if (currentColor !== null && currentColor == "dark") {
     document.body.classList.add("dark-mode");
     croquis.colorChanger.textContent = "WhiteMode";
   } else {
@@ -23,7 +22,6 @@ croquis.loaded(() => {
   }
 
   croquis.colorChanger.addEventListener("click", () => {
-    console.log(currentColor);
     if (currentColor == "dark") {
       currentColor = "white";
       croquis.setCookie("colorMode", "white", 7);
@@ -43,6 +41,8 @@ croquis.loaded(() => {
     setTimeout(async () => {
       if (last == e) {
         let val = croquis.input.value;
+
+        if (type !== "reverse" && val === "") return;
         let toast = croquis.newToast(`타이핑이 시작됩니다: ${val}`);
         toast.autoCloseAt(4000);
 
