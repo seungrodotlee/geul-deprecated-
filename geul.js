@@ -8,8 +8,14 @@ class Geul {
     this.element = element;
     this.running = false;
 
-    if (!("_g" in element) || element._g != this) {
+    if (!("_g" in element)) {
       element._g = this;
+    } else if (element._g !== this) {
+      let e = Error(
+        "Element can't have multiple Geul Instance.\nUse Element.getGeulInstancee instead."
+      );
+      console.error(e.stack);
+      return;
     }
 
     Geul._instances.push(this);
@@ -263,6 +269,10 @@ HTMLElement.prototype.setTypingSpeed = function (value) {
   } else {
     this._g.setSpeed(value);
   }
+};
+
+HTMLElement.prototype.getGeulInstance = function () {
+  return this._g;
 };
 
 window.Geul = Geul;
