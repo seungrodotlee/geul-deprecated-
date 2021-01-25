@@ -1,5 +1,4 @@
 import Hangul from "hangul-js";
-import { resolve } from "path";
 
 class Geul {
   constructor(value, element, speed = Geul._speed) {
@@ -34,14 +33,26 @@ class Geul {
     this.particles = Hangul.disassemble(this.value);
   }
 
+  getValue() {
+    return this.value;
+  }
+
   setSpeed(val) {
     this.speed = val;
+  }
+
+  getSpeed() {
+    return this.speed;
+  }
+
+  getElement() {
+    return this.element;
   }
 
   run(delay = 0, value = this.value) {
     if (value === "") {
       console.warn("Value for typing can't be empty string!");
-      return;
+      return false;
     }
 
     let prom = new Promise((resolve, reject) => {
@@ -75,7 +86,7 @@ class Geul {
 
               if (d === this.particles.length) {
                 this.running = false;
-                resolve(this.source);
+                resolve(this.element.textContent);
               }
             }, this.speed * d);
           }.bind(this)(parseInt(i)));
@@ -127,7 +138,7 @@ class Geul {
 
               if (d === this.particles.length) {
                 this.running = false;
-                resolve(this.source);
+                resolve(this.element.textContent);
               }
             }, this.speed * d);
           }.bind(this)(parseInt(i)));
@@ -276,3 +287,5 @@ HTMLElement.prototype.getGeulInstance = function () {
 };
 
 window.Geul = Geul;
+
+module.exports = Geul;

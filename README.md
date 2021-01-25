@@ -213,3 +213,4 @@ console.log(a.speed); //80
 ## 사용한 라이브러리
 
 Hangul (https://github.com/e-/Hangul.js/)
+데모페이지는 제작중에 있는 프론트엔드 프레임워크인 [croquis](https://github.com/seungrolee/croquis)를 이용하여 작성하였습니다.
