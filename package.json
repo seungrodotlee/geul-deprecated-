@@ -1,8 +1,22 @@
 {
   "name": "geul",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "typing animation library focused on korean lang.",
   "main": "geul.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seungrolee/geul.git"
+  },
+  "keywords": [
+    "typing",
+    "animation",
+    "korean"
+  ],
+  "author": "seungrodotlee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seungrolee/geul/issues"
+  },
   "dependencies": {
     "babel-jest": "^26.6.3",
     "hangul-js": "^0.2.6",
@@ -19,19 +33,5 @@
     "build": "./node_modules/.bin/webpack && cp dist/geul.js demo/geul.js",
     "watch": "./node_modules/.bin/webpack --watch",
     "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/seungrolee/geul.git"
-  },
-  "keywords": [
-    "typing",
-    "animation",
-    "korean"
-  ],
-  "author": "seungrodotlee",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/seungrolee/geul/issues"
   }
 }

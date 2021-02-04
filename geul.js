@@ -7,14 +7,19 @@ class Geul {
     this.element = element;
     this.running = false;
 
+    if (!(element instanceof HTMLElement)) {
+      let e = Error("Wrong element!");
+      throw e;
+    }
+
     if (!("_g" in element)) {
       element._g = this;
     } else if (element._g !== this) {
       let e = Error(
         "Element can't have multiple Geul Instance.\nUse Element.getGeulInstancee instead."
       );
-      console.error(e.stack);
-      return;
+
+      throw e;
     }
 
     Geul._instances.push(this);
@@ -25,8 +30,8 @@ class Geul {
   setValue(val) {
     if (this.running) {
       let e = Error("Typing is already in progress");
-      console.error(e.stack);
-      return;
+      this.running = false;
+      throw e;
     }
 
     this.value = val;
@@ -49,7 +54,7 @@ class Geul {
     return this.element;
   }
 
-  run(delay = 0, value = this.value) {
+  run(delay = 10, value = this.value) {
     if (value === "") {
       console.warn("Value for typing can't be empty string!");
       return false;
@@ -58,7 +63,7 @@ class Geul {
     let prom = new Promise((resolve, reject) => {
       if (this.running) {
         let e = Error("Typing is already in progress");
-        console.error(e.stack);
+        this.running = false;
         reject(e);
         return;
       }
@@ -69,12 +74,6 @@ class Geul {
 
       this.running = true;
 
-      if (!(this.element instanceof HTMLElement)) {
-        let e = Error("Wrong element!");
-        console.error(e.stack);
-        reject(e);
-        return;
-      }
       setTimeout(() => {
         for (let i in this.particles) {
           (function (d) {
@@ -103,10 +102,8 @@ class Geul {
     }
 
     if (Hangul.search(this.value, position) === -1) {
-      let e = Error(`Can't start typing from ${this.value} to ${position}`);
-      console.error(e.stack);
-      reject(e);
-      return;
+      let e = Error(`Can't start typing from ${position} to ${this.value}`);
+      throw e;
     }
 
     let startIdx = Hangul.disassemble(position).length;
@@ -114,19 +111,13 @@ class Geul {
     let prom = new Promise((resolve, reject) => {
       if (this.running) {
         let e = Error("Typing is already in progress");
-        console.error(e.stack);
+        this.running = false;
         reject(e);
         return;
       }
 
       this.running = true;
 
-      if (!(this.element instanceof HTMLElement)) {
-        let e = Error("Wrong element!");
-        console.error(e.stack);
-        reject(e);
-        return;
-      }
       setTimeout(() => {
         for (let i = startIdx; i < this.particles.length; i++) {
           (function (d) {
@@ -158,7 +149,16 @@ class Geul {
     let older = this.value;
 
     this.setValue(this.value + value);
-    this.runFrom(older, delay);
+
+    return new Promise((resolve, reject) => {
+      this.runFrom(older, delay)
+        .then((r) => {
+          resolve(r);
+        })
+        .catch((e) => {
+          reject(e);
+        });
+    });
   }
 
   reverse(position, delay = 0) {
@@ -168,9 +168,7 @@ class Geul {
 
     if (Hangul.search(this.value, position) === -1) {
       let e = Error(`Can't reverse from ${this.value} to ${position}`);
-      console.error(e.stack);
-      reject(e);
-      return;
+      throw e;
     }
 
     let targetIdx = Hangul.disassemble(position).length;
@@ -178,19 +176,12 @@ class Geul {
     let prom = new Promise((resolve, reject) => {
       if (this.running) {
         let e = Error("Typing is already in progress");
-        console.error(e.stack);
+        this.running = false;
         reject(e);
         return;
       }
 
       this.running = true;
-
-      if (!(this.element instanceof HTMLElement)) {
-        let e = Error("Wrong element!");
-        console.error(e.stack);
-        reject(e);
-        return;
-      }
 
       setTimeout(() => {
         for (let i = this.particles.length - 1; i >= targetIdx; i--) {
@@ -232,7 +223,9 @@ Geul.setStaticSpeed = function (value) {
 
 HTMLElement.prototype.geul = function (source, delay = 0, speed = Geul._speed) {
   if ("_g" in this) {
-    this._g.setValue(source);
+    if (source !== undefined) {
+      this._g.setValue(source);
+    }
   } else {
     this._g = new Geul(source, this, speed);
   }
