@@ -56,6 +56,7 @@ class Geul {
   }
 
   stop() {
+    if (!this.running) return;
     this.forcedStop = true;
   }
 
