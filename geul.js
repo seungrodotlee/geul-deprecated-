@@ -6,6 +6,7 @@ class Geul {
     this.speed = speed;
     this.element = element;
     this.running = false;
+    this.forcedStop = false;
 
     if (!(element instanceof HTMLElement)) {
       let e = Error("Wrong element!");
@@ -54,6 +55,10 @@ class Geul {
     return this.element;
   }
 
+  stop() {
+    this.forcedStop = true;
+  }
+
   run(delay = 10, value = this.value) {
     if (value === "") {
       console.warn("Value for typing can't be empty string!");
@@ -74,11 +79,24 @@ class Geul {
 
       this.running = true;
 
+      let typingStack = [];
+
       setTimeout(() => {
         for (let i in this.particles) {
           (function (d) {
             d++;
-            setTimeout(() => {
+            typingStack[i] = setTimeout(() => {
+              if (this.forcedStop) {
+                this.running = false;
+                this.forcedStop = false;
+
+                for (i in typingStack) {
+                  clearTimeout(typingStack[i]);
+                }
+
+                resolve();
+              }
+
               this.element.textContent = Hangul.assemble(
                 this.particles.slice(0, d)
               );
@@ -117,12 +135,24 @@ class Geul {
       }
 
       this.running = true;
+      let typingStack = [];
 
       setTimeout(() => {
-        for (let i = startIdx; i < this.particles.length; i++) {
+        for (let i in this.particles) {
           (function (d) {
             d++;
-            setTimeout(() => {
+            typingStack[i] = setTimeout(() => {
+              if (this.forcedStop) {
+                this.running = false;
+                this.forcedStop = false;
+
+                for (i in typingStack) {
+                  clearTimeout(typingStack[i]);
+                }
+
+                resolve();
+              }
+
               this.element.textContent = Hangul.assemble(
                 this.particles.slice(0, d)
               );
@@ -182,11 +212,24 @@ class Geul {
       }
 
       this.running = true;
+      let typingStack = [];
 
       setTimeout(() => {
-        for (let i = this.particles.length - 1; i >= targetIdx; i--) {
+        for (let i in this.particles) {
           (function (d) {
-            setTimeout(() => {
+            d++;
+            typingStack[i] = setTimeout(() => {
+              if (this.forcedStop) {
+                this.running = false;
+                this.forcedStop = false;
+
+                for (i in typingStack) {
+                  clearTimeout(typingStack[i]);
+                }
+
+                resolve();
+              }
+
               let pos = d;
               this.element.textContent = Hangul.assemble(
                 this.particles.slice(0, pos)
@@ -279,6 +322,12 @@ HTMLElement.prototype.getGeulInstance = function () {
   return this._g;
 };
 
-window.Geul = Geul;
+HTMLElement.prototype.stopTyping = function () {
+  if (!("_g" in this)) {
+    throw Error("Start typing first!");
+  } else {
+    this._g.stop();
+  }
+};
 
-module.exports = Geul;
+window.Geul = Geul;

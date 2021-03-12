@@ -7,7 +7,7 @@ module.exports = {
   },
   output: {
     filename: "geul.js",
-    path: path.resolve("./dist"),
+    path: path.resolve("./demo"),
   },
   module: {
     rules: [

@@ -1,6 +1,6 @@
 {
   "name": "geul",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "typing animation library focused on korean lang.",
   "main": "geul.js",
   "repository": {
@@ -30,8 +30,8 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "build": "./node_modules/.bin/webpack && cp dist/geul.js demo/geul.js",
+    "build": "./node_modules/.bin/webpack && cp demo/geul.js dist/geul.js",
     "watch": "./node_modules/.bin/webpack --watch",
-    "test": "jest"
+    "test": "cp geul.js geul_t.js && echo '\nmodule.exports = Geul;' >> geul_t.js && jest"
   }
 }

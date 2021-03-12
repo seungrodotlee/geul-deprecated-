@@ -1,4 +1,4 @@
-const Geul = require("../geul.js");
+const Geul = require("../geul_t.js");
 
 let element = document.createElement("div");
 let g = new Geul("안녕하세요", element, 10);
