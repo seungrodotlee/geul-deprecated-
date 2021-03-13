@@ -1,6 +1,5 @@
 .gitignore
 demo
-dist
 logo.ai
 logo.png
 webpack.config.js
