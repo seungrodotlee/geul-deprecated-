@@ -216,7 +216,7 @@ class Geul {
       let typingStack = [];
 
       setTimeout(() => {
-        for (let i in this.particles) {
+        for (let i = 0; i < this.particles.length; i++) {
           (function (d) {
             d++;
             typingStack[i] = setTimeout(() => {
@@ -231,12 +231,15 @@ class Geul {
                 resolve();
               }
 
-              let pos = d;
+              let pos = d - 1;
+
+              if (pos < 0) return;
+
               this.element.textContent = Hangul.assemble(
                 this.particles.slice(0, pos)
               );
 
-              if (d === targetIdx) {
+              if (pos === targetIdx) {
                 this.running = false;
                 this.setValue(Hangul.assemble(this.particles.slice(0, pos)));
                 resolve(position);

@@ -1,19 +1,19 @@
 # Geul.js
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fseungrolee%2Fgeul&count_bg=%23253EC2&title_bg=%233D3D3D&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
-[![DOWNLOADS](https://img.shields.io/github/downloads/seungrolee/geul/total?color=0f7de4&style=flat-square)](https://github.com/seungrolee/geul/releases)
+[![DOWNLOADS](https://img.shields.io/github/downloads/seungrolee/geul/total?color=0f7de4&style=flat-square)](https://github.com/seungrodotlee/geul/releases)
 [![NPM](https://img.shields.io/npm/dt/geul?label=npm&style=flat-square)](https://www.npmjs.com/package/geul)
-![LICENSE](https://img.shields.io/github/license/seungrolee/geul?style=flat-square)
+![LICENSE](https://img.shields.io/github/license/seungrodotlee/geul?style=flat-square)
 
 <br>
 <img src="logo.png">
 <br>
 
-> Geul은 한글에 초점을 둔 타이핑 애니메이션을 위한 라이브러리입니다. <br> 데모는 [여기서](https://seungrolee.github.io/geul/) 보실 수 있습니다!
+> Geul은 한글에 초점을 둔 타이핑 애니메이션을 위한 라이브러리입니다. <br> 데모는 [여기서](https://seungrodotlee.github.io/geul/) 보실 수 있습니다!
 
 ## 다운로드
 
-[v0.1.1 (베타버전:2021.01.18 배포)](https://github.com/seungrolee/geul/releases/download/v0.1.1/geul.js)
+[v0.1.1 (베타버전:2021.01.18 배포)](https://github.com/seungrodotlee/geul/releases/download/v0.1.1/geul.js)
 
 ## 설치
 
@@ -36,7 +36,7 @@ import Geul from "geul"; //혹은 require("geul");
 ```
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/seungrolee/geul/dist/geul.js" type="text/javascript">
+<script src="https://cdn.jsdelivr.net/gh/seungrodotlee/geul/dist/geul.js" type="text/javascript">
 ```
 
 ## 사용법
