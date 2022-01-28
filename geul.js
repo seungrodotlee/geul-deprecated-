@@ -336,3 +336,5 @@ HTMLElement.prototype.stopTyping = function () {
 
 window.Hangul = Hangul;
 window.Geul = Geul;
+
+export default Geul;
