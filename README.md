@@ -32,7 +32,7 @@ import Geul from "geul"; //혹은 require("geul");
 정적 웹페이지에서 geul.js 파일을 직접 `<script>` 태그를 통해 삽입하여 사용하거나, CDN을 통해 파일을 다운받지 않고도 사용할 수도 있습니다.
 
 ```html
-<script src="./geul.js" type="text/javascript">
+<script src="./dist/geul.js" type="text/javascript">
 ```
 
 ```html
