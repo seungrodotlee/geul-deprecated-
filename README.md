@@ -1,5 +1,7 @@
 # Geul.js
 
+> 본 라이브러리는 더 이상 관리되지 않으며, [Geul.js](https://github.com/seungrodotlee/Geul.js)로 대체될 예정입니다.
+
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fseungrolee%2Fgeul&count_bg=%23253EC2&title_bg=%233D3D3D&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
 [![DOWNLOADS](https://img.shields.io/github/downloads/seungrolee/geul/total?color=0f7de4&style=flat-square)](https://github.com/seungrodotlee/geul/releases)
 [![NPM](https://img.shields.io/npm/dt/geul?label=npm&style=flat-square)](https://www.npmjs.com/package/geul)
